@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Header } from "../stories/modules/header/Header";
 import { OptionList } from "../stories/modules/optionList/OptionList";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import { Title } from "../stories/modules/title/Title";
 import { Button } from "../stories/modules/button/Button";
 
 export const CreatePostPage: NextPage = () => {
-  const [options, setOptions] = useState([{ name: "邊緣小杰", icon: user1 }]);
+  const [options] = useState([{ name: "邊緣小杰", icon: user1 }]);
   const [content, setContent] = useState("");
   const [isError, setIsError] = useState(false);
   const [image, setImage] = useState({
@@ -40,7 +40,7 @@ export const CreatePostPage: NextPage = () => {
                   value={content}
                   placeholder="輸入您的貼文內容"
                   rows={6}
-                  onChange={e => setContent(e.target.value)}
+                  onChange={(e) => setContent(e.target.value)}
                   className="w-full h-40 text-dark border-2 border-solid border-dark resize-none p-4 mb-4"
                 />
                 <label htmlFor="uploadImage">
@@ -52,13 +52,14 @@ export const CreatePostPage: NextPage = () => {
                     accept="image/jpg,image/jpeg,image/png"
                     id="uploadImage"
                     className="h-0"
-                    onChange={e => uploadImage(e)}
+                    onChange={(e) => uploadImage(e)}
                   />
                 </label>
                 {image.imagePreview && (
                   <div className="relative h-40 overflow-hidden rounded-lg border-2 border-dark border-solid mb-6">
                     <Image
                       src={image.imagePreview}
+                      alt="preview"
                       layout="fill"
                       objectFit="cover"
                     />

@@ -15,7 +15,7 @@ import dayjs from "dayjs";
 import { Toolbar } from "../stories/modules/toolbar/Toolbar";
 
 export const PostPage: NextPage = () => {
-  const [options, setOptions] = useState([{ name: "邊緣小杰", icon: user1 }]);
+  const [options] = useState([{ name: "邊緣小杰", icon: user1 }]);
   const mockData = [
     {
       userName: "邊緣小杰",
@@ -69,7 +69,7 @@ export const PostPage: NextPage = () => {
                 </div>
               </div>
             </div>
-            {mockData.map(data => (
+            {mockData.map((data) => (
               <Post
                 key={data.userName}
                 userName={data.userName}

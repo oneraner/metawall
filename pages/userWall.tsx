@@ -15,7 +15,7 @@ import dayjs from "dayjs";
 import { FollowTitle } from "../stories/modules/followTitle/FollowTitle";
 
 export const UserWallPage: NextPage = () => {
-  const [options, setOptions] = useState([{ name: "邊緣小杰", icon: user1 }]);
+  const [options] = useState([{ name: "邊緣小杰", icon: user1 }]);
   const mockData = [
     {
       userName: "邊緣小杰",
@@ -73,7 +73,7 @@ export const UserWallPage: NextPage = () => {
                 </button>
               </div>
             </div>
-            {mockData.map(data => (
+            {mockData.map((data) => (
               <Post
                 key={data.userName}
                 userName={data.userName}

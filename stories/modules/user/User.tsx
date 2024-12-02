@@ -4,8 +4,8 @@ import Image, { StaticImageData } from "next/image";
 interface UserProps {
   userName: string;
   src: StaticImageData;
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
   date?: string;
   bottomLine?: boolean;
   className?: string;
@@ -19,8 +19,8 @@ interface UserProps {
 export const User = ({
   userName = "Member",
   src,
-  width = "30px",
-  height = "30px",
+  width = 30,
+  height = 30,
   bottomLine,
   date,
   className,
@@ -29,7 +29,7 @@ export const User = ({
 }: UserProps) => (
   <div className={`flex mr-2.5 ${className}`}>
     <div className="flex justify-center items-center mr-4">
-      <Image width={width} height={height} src={src}></Image>
+      <Image width={width} height={height} alt="user" src={src}></Image>
     </div>
     <div
       className={`flex flex-col justify-center ${

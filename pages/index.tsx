@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isError, setError] = useState(false);
+  const [isError] = useState(false);
   return (
     <div>
       <Head>
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       <main className="flex justify-center items-center h-full min-h-screen bg-c-bg">
         <div className="flex max-w-[869px] max-h-[535px] min-w-[600px] border-2 border-solid border-dark py-[70px] px-12 bg-c-bg shadow-main">
           <div className="w-1/2 pr-6">
-            <Image src={login} objectFit="cover"></Image>
+            <Image src={login} alt="login" objectFit="cover"></Image>
           </div>
           <div className="w-1/2 flex flex-col items-center pl-6">
             <h1 className="text-6xl text-primary font-paytone font-black leading-1.4">
@@ -35,13 +35,13 @@ const Home: NextPage = () => {
             </h2>
             <Input
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
               className="mb-4"
             />
             <Input
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               className="mb-4"
             />

@@ -11,7 +11,7 @@ import { Title } from "../stories/modules/title/Title";
 import { User } from "../stories/modules/user/User";
 
 export const FollowListPage: NextPage = () => {
-  const [options, setOptions] = useState([{ name: "邊緣小杰", icon: user1 }]);
+  const [options] = useState([{ name: "邊緣小杰", icon: user1 }]);
   const mockData = [
     {
       userName: "波吉",
@@ -56,7 +56,7 @@ export const FollowListPage: NextPage = () => {
         <main className="max-w-[1200px] w-full flex justify-between">
           <div className="w-3/4 pr-7">
             <Title text="追蹤名單" className="mb-8" />
-            {mockData.map(follow => (
+            {mockData.map((follow) => (
               <div
                 key={follow.userName}
                 className="flex justify-between items-center border-2 border-solid border-dark border-b-4 bg-white rounded-lg p-4 mb-4"

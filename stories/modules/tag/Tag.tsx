@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import userDefault from "../../../public/image/user_default.png";
 import { Input } from "../input/Input";
 import { Button } from "../button/Button";
@@ -9,7 +9,7 @@ interface TagProps {}
 /**
  * Primary UI component for user interaction
  */
-export const Tag = ({}: TagProps) => {
+export const Tag = () => {
   const [mode, setMode] = useState("updateName");
   const [userName, setUserName] = useState("");
   const [gender, setGender] = useState("");
@@ -46,7 +46,12 @@ export const Tag = ({}: TagProps) => {
         {mode === "updateName" ? (
           <>
             <div className="mb-4">
-              <Image width="107px" height="107px" src={userDefault} />
+              <Image
+                width={107}
+                height={107}
+                alt="userDefault"
+                src={userDefault}
+              />
             </div>
             <button type="button" className="bg-dark text-white py-2 px-6 mb-3">
               上傳大頭照
@@ -56,7 +61,7 @@ export const Tag = ({}: TagProps) => {
               <Input
                 className="mb-4"
                 value={userName}
-                onChange={e => setUserName(e.target.value)}
+                onChange={(e) => setUserName(e.target.value)}
               />
               <p className="text-dark mb-2">性別</p>
               <div className="flex items-center mb-9">
@@ -65,7 +70,7 @@ export const Tag = ({}: TagProps) => {
                   name="gender"
                   value="male"
                   checked={gender === "male"}
-                  onChange={e => setGender(e.target.value)}
+                  onChange={(e) => setGender(e.target.value)}
                   className={`${
                     gender === "male" &&
                     "after:w-2.5 after:h-2.5 after:bg-dark after:absolute after:top-[3px] after:left-[3.5px] after:rounded-full"
@@ -77,7 +82,7 @@ export const Tag = ({}: TagProps) => {
                   name="gender"
                   value="famale"
                   checked={gender === "famale"}
-                  onChange={e => setGender(e.target.value)}
+                  onChange={(e) => setGender(e.target.value)}
                   className={`${
                     gender === "famale" &&
                     "after:w-2.5 after:h-2.5 after:bg-dark after:absolute after:top-[3px] after:left-[3.5px] after:rounded-full"
@@ -103,25 +108,23 @@ export const Tag = ({}: TagProps) => {
             </div>
           </>
         ) : (
-          <>
-            <div className="w-3/5">
-              <p className="text-dark mb-1">輸入新密碼</p>
-              <Input
-                className="mb-4"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                placeholder="請輸入新密碼"
-              />
-              <p className="text-dark mb-1">再次輸入</p>
-              <Input
-                className="mb-6"
-                value={repeatPassword}
-                onChange={e => setRepeatPassword(e.target.value)}
-                placeholder="再次輸入新密碼"
-              />
-              <Button label="重設密碼" disable={!password || !repeatPassword} />
-            </div>
-          </>
+          <div className="w-3/5">
+            <p className="text-dark mb-1">輸入新密碼</p>
+            <Input
+              className="mb-4"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="請輸入新密碼"
+            />
+            <p className="text-dark mb-1">再次輸入</p>
+            <Input
+              className="mb-6"
+              value={repeatPassword}
+              onChange={(e) => setRepeatPassword(e.target.value)}
+              placeholder="再次輸入新密碼"
+            />
+            <Button label="重設密碼" disable={!password || !repeatPassword} />
+          </div>
         )}
       </div>
     </div>

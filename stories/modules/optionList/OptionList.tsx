@@ -19,13 +19,13 @@ export const OptionList = ({ options }: OptionListProps) => (
       className="hover:bg-active hover:text-black mb-6"
     />
     <div className="w-full flex flex-col pl-2">
-      {options.map(option => (
+      {options.map((option) => (
         <User
           key={option.name}
           userName={option.name}
           src={option.icon}
-          width="50px"
-          height="50px"
+          width={50}
+          height={50}
         />
       ))}
       <SettingButton

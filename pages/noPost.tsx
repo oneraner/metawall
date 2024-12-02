@@ -9,7 +9,7 @@ import { Select } from "../stories/modules/select/Select";
 import user1 from "../public/image/user.png";
 
 export const NoPostPage: NextPage = () => {
-  const [options, setOptions] = useState([{ name: "邊緣小杰", icon: user1 }]);
+  const [options] = useState([{ name: "邊緣小杰", icon: user1 }]);
   return (
     <>
       <Header />

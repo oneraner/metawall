@@ -10,7 +10,7 @@ interface HeaderProps {
  * Primary UI component for user interaction
  */
 export const Header = ({ className }: HeaderProps) => {
-  const [dropDown, setDropdown] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
   return (
     <header
       className={`w-full bg-white border-b-[3px] border-b-solid border-b-header-border flex justify-center ${className}`}
@@ -19,10 +19,11 @@ export const Header = ({ className }: HeaderProps) => {
         <p className="text-2xl text-dark font-paytone font-black leading-1.4">
           MetaWall
         </p>
-        <div
+        <button
           className="relative"
-          onMouseOver={() => setDropdown(true)}
-          onMouseLeave={() => setDropdown(false)}
+          onFocus={() => setDropDown(true)}
+          onMouseOver={() => setDropDown(true)}
+          onMouseLeave={() => setDropDown(false)}
         >
           <User userName="Member" src={user1} bottomLine />
           <div
@@ -43,7 +44,7 @@ export const Header = ({ className }: HeaderProps) => {
               !dropDown && "invisible"
             } absolute -bottom-[132px] left-1 w-[178px] h-32 border-2 border-solid border-dark bg-white`}
           ></div>
-        </div>
+        </button>
       </div>
     </header>
   );

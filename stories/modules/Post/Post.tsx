@@ -38,8 +38,8 @@ export const Post = ({
     >
       <User
         userName={userName}
-        width="45px"
-        height="45px"
+        width={45}
+        height={45}
         src={userIcon}
         date={date}
         className="mb-4"
@@ -47,7 +47,7 @@ export const Post = ({
       <p className="mb-4">{content}</p>
       {src && (
         <div className="relative h-[157px] mb-5">
-          <Image src={src ?? ""} layout="fill" />
+          <Image src={src ?? ""} alt="mainImage" layout="fill" />
         </div>
       )}
       {like ? (
@@ -62,12 +62,12 @@ export const Post = ({
       )}
       <div className="flex mb-4">
         <div className=" mr-3">
-          <Image width="40px" height="40px" src={user1} />
+          <Image width={40} height={40} alt="user" src={user1} />
         </div>
         <Input
           className="h-10"
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
         <div className="w-[128px] relative">
           <button
@@ -82,26 +82,25 @@ export const Post = ({
             留言
             {loading && (
               <span className="absolute top-2 right-5">
-                <Image width="12px" height="12px" src={loadingGif} />
+                <Image width={12} height={12} alt="loading" src={loadingGif} />
               </span>
             )}
           </button>
         </div>
       </div>
-      {comments &&
-        comments.map((comment, index) => (
-          <div key={index} className="bg-c-bg/30 p-4 mb-4">
-            <User
-              userName={comment.userName}
-              width="45px"
-              height="45px"
-              src={comment.userIcon}
-              date={comment.date}
-              className="mb-4"
-            />
-            <p className="ml-16">{comment.content}</p>
-          </div>
-        ))}
+      {comments?.map((comment, index) => (
+        <div key={index} className="bg-c-bg/30 p-4 mb-4">
+          <User
+            userName={comment.userName}
+            width={45}
+            height={45}
+            src={comment.userIcon}
+            date={comment.date}
+            className="mb-4"
+          />
+          <p className="ml-16">{comment.content}</p>
+        </div>
+      ))}
     </div>
   );
 };
